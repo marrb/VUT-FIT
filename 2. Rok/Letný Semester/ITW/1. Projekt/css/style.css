@@ -1,0 +1,714 @@
+/*
+* Login: xbubla02
+*
+* Doplnte sve reseni.
+*
+* Nezapomente pridat strucne hromadne komentare pro pravidla jednotlivych sekci
+* a pro netrivialni useky kodu (napr. bubliny v sekci #refs)
+*/
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+h3{
+    font-size: 24px;
+}
+
+html, body{
+    height: 100%;
+    min-width: 768px;
+}
+
+body{
+    min-width: 768px;
+    font-family: 'PT Sans', sans-serif;
+}
+
+::selection{
+    background: rgb(82, 170, 82);
+    color: white;
+}
+
+/*------------------ HEADER ------------------*/
+#header{
+    height: 80%;
+    background-image: url("../img/header.jpg");   
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+#header .content{
+    text-align: center;
+    margin: auto;
+    max-width: 1200px;
+}
+
+#header-menu{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: absolute;
+    min-width: 768px;
+}
+
+#logo a, #logo{
+    color: steelblue;
+    font-family: 'Special Elite', cursive;
+    text-decoration: none;
+    font-size: 25px;
+}
+
+#logo a:hover, #contacts a:hover, #networks i:hover{
+    color: white;
+}
+
+nav ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 20px 0 0 10px;
+}
+
+nav ul li{
+    float: left;
+    padding-right: 20px;
+}
+
+nav ul li a{
+    text-decoration: none;
+    font-family: 'PT Sans', sans-serif;
+    color: #bfbfbf;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: .05em;
+    padding: 10px;
+    border: 1px transparent solid;
+    transition-duration: 0.5s;
+}
+
+nav li a:hover{
+    border: 1px steelblue solid;
+    transition-duration: 0.5s;
+}
+
+/*------------------ HEADER - GRID ------------------*/
+nav{
+    grid-row: 2;
+}
+
+#contacts i{
+    color: steelblue;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+#contacts a{
+    color: #898989;
+    text-decoration: none;
+}
+
+#contacts{
+    color: #898989;
+    text-align: right;
+    padding-top: 20px;
+    font-size: 17px;
+}
+
+#logo{
+    padding-top: 10px;
+    text-align: left;
+}
+
+#networks{
+    padding-top: 20px;
+    text-align: right;
+    font-size: 25px;
+}
+
+#networks i{
+    color: steelblue;
+    padding-left: 5px;
+}
+/*-------------------------------------------------*/
+
+/*------------------ HEADER - TITLE ------------------*/
+#header-title{
+    font-size: 18px;
+    top: 33%;
+    color: white;
+    font-family: sans-serif;
+    letter-spacing: -1px;
+    text-align: left;
+    position: absolute;
+}
+
+#header-title h1{
+    font-size: 64px;
+}
+
+#get-started{
+    padding: 20px;
+    color: #898989;
+    border: 2px solid;
+    border-radius: 15px;
+    position: absolute;
+    margin-top: 50px;
+    font-family: 'PT Sans', sans-serif;
+    letter-spacing: .02em;
+}
+
+#get-started a{
+    text-decoration: none;
+    color: #898989;
+}
+
+#get-started:hover{
+    background: steelblue;
+    transition-duration: 1s;
+}
+
+#get-started:hover > a{
+    color: white;
+    transition-duration: 1s;
+}
+/*-------------------------------------------------*/
+/*-------------------------------------------------*/
+
+
+
+/*------------------ SERVICES ------------------*/
+#services .content{
+    min-height: 768px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+#services h2{
+    padding: 50px 0 50px 0;
+    font-size: 40px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+#services p{
+    text-align: center;
+    letter-spacing: 0.5px;
+    font-size: 18px;
+    color: #bfbfbf;
+    line-height: 1.7;
+    padding-bottom: 40px;
+}
+
+/*------------------ SERVICES - GRID CARDS ------------------*/
+#services .content > :nth-child(3){
+    display: grid;
+    grid-template-columns: 300px 300px;
+    text-align: center;
+    gap: 40px 40px;
+    justify-content: center;
+    padding-bottom: 80px;
+}
+
+.services-column{
+    box-shadow: 1px 1px 10px 5px #bfbfbf;
+    border-radius: 5px;
+}
+
+.services-card p{
+    font-size: 14px !important;
+    padding-bottom: 20px !important;
+}
+
+.services-card h3{
+    padding-bottom: 10px;
+}
+
+.services-card img{
+    width: 50px;
+    height: 50px;
+    margin: 20px 0 40px 0;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid steelblue;
+}
+
+.services-card img:nth-child(2){
+    display: none; /*hide white image*/
+}
+
+.services-column:hover > .services-card img:nth-child(2){
+    background-color: steelblue;
+    display: unset; /*on hover show white image*/
+}
+
+.services-column:hover > .services-card img:nth-child(1){
+    display: none; /*on hover hide blue image*/
+}
+
+.services-column:hover{
+    color: steelblue;
+    box-shadow: 1px 1px 5px 5px steelblue;
+}
+
+/*-------------------------------------------------*/
+/*-------------------------------------------------*/
+
+
+
+/*------------------ ABOUT US ------------------*/
+#about{
+    background-color: #f7f7f7;
+    padding: 80px 0 80px 0;
+    margin-bottom: 80px;
+}
+
+#about p{
+    color: #898989;
+    font-size: 18px;
+    line-height: 1.7;
+    text-align: justify;
+    word-spacing: 2px;
+}
+
+#about h2{
+    padding-bottom: 40px;
+    padding-top: 50px;
+    font-size: 32px;
+}
+
+#about .content{
+    max-width: 1200px;
+    min-width: 768px;
+    margin: auto;
+    display: grid;
+    grid-template-rows: 1fr;
+    row-gap: 40px;
+}
+
+.about-item:nth-of-type(odd) img{
+    float: left;
+    border-radius: 5px;
+    margin: 40px 80px 40px 0;
+    max-width: 40%;
+    height: auto;
+    transition-duration: 0.5s;
+}
+
+.about-item:nth-of-type(even) img{
+    max-width: 40%;
+    height: auto;
+    float: right;
+    border-radius: 5px;
+    margin: 40px 0 40px 80px;
+    transition-duration: 0.5s;
+}
+
+.about-item img:hover{
+    max-width: 50%;
+    height: auto;
+    transition-duration: 0.5s;
+}
+/*-------------------------------------------------*/
+
+
+
+/*------------------ TEAM - GRID ------------------*/
+
+#team .content{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: min-content min-content;
+    column-gap: 20px;
+    max-width: 1200px;
+    min-width: 768px;
+    text-align: center;
+    margin: auto;
+    padding-bottom: 100px;
+}
+
+#team .content h2{
+    grid-row: 1;
+    grid-column: span 4;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 40px;
+    padding-bottom: 40px;
+}
+
+#team .content h3{
+    padding-bottom: 10px;
+}
+
+#team .content h4{
+    color: #898989;
+    padding-bottom: 10px;
+}
+
+#team .content p{
+    color: #bfbfbf;
+    line-height: 1.7;
+    font-size: 13px;
+    padding: 0 10px 20px 10px;
+}
+
+#team .content .team-card{
+    box-shadow: 1px 1px 5px 5px #bfbfbf;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#team .content .team-card img{
+    width: 100%;
+    height: auto;
+    padding-bottom: 40px;
+    border-radius: 5px;
+}
+
+#team .content .team-card:hover{
+    box-shadow: 1px 1px 10px 5px steelblue;
+    color: steelblue;
+}
+
+#team{
+    border-bottom: black 1px dashed;
+}
+
+
+/*-------------------------------------------------*/
+
+
+
+/*------------------ STATS - GRID ------------------*/
+#stats .content{
+    max-width: 1200px;
+    padding: 60px 0 60px 0;
+    display: grid;
+    text-align: center;
+    margin: auto;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 20px;
+}
+
+#stats .stats-card{
+    max-width: 300px;
+    width: 100%;
+    border-radius: 5px;
+    margin: auto;
+    position: relative;
+    background-color: #4d4d4d;
+}
+
+#stats .stats-card h3{
+    padding-top: 20px;
+    color: white;
+}
+
+#stats .stats-card p{
+    padding-top: 10px;
+    color: #bfbfbf;
+    padding-bottom: 20px;
+}
+
+.stats-card i{
+    color: steelblue;
+    font-size: 32px;
+    padding: 10px;
+    border-radius: 30px;
+    margin-top: -30px;
+    background-color: white;
+}
+
+#stats .stats-card:hover{
+    background-color: steelblue;
+}
+/*-------------------------------------------------*/
+
+
+
+/*------------------ PRICE TABLE------------------*/
+#price{
+    background-color: #f7f7f7;
+    text-align: center;
+}
+
+#price .content{
+    max-width: 1200px;
+    padding: 80px 0 80px 0;
+    margin: auto;
+}
+
+#price h2{
+    font-size: 40px;
+    padding-bottom: 40px;
+}
+
+#price table{
+    width: 80%;
+    margin: auto;
+    border-collapse: separate;
+    border-spacing: 0 20px;
+    text-align: left;
+    color: #898989;
+    font-size: 18px;
+}
+
+/*------------------ TABLE HEAD ------------------*/
+#price thead th{
+    padding: 20px 0 20px 20px;
+    color: black;
+}
+/*-------------------------------------------------*/
+
+/*------------------ TABLE BODY ------------------*/
+#price tbody td{
+    padding: 20px 0 20px 0;
+}
+
+#price tbody tr td{
+    border-bottom: 1px dotted steelblue;
+    border-top: 1px dotted steelblue;
+    padding-left: 20px;
+}
+
+#price ul li:first-child{
+    list-style-type: none;
+    color: #898989;
+    font-weight: bold;
+}
+
+#price ul{
+    list-style-position: inside;
+    line-height: 1.7;
+}
+
+#price tbody tr:hover{
+    background-color: white;
+    color: steelblue !important;
+}
+
+#price tbody tr:hover ul li:first-child{
+    color: steelblue;
+}
+
+#price button{
+    background-color: inherit;
+    border: 1px solid steelblue;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+#price button:hover{
+    background-color: steelblue;
+    color: white;
+}
+/*-------------------------------------------------*/
+/*-------------------------------------------------*/
+
+
+
+/*------------------ REFS ------------------*/
+#refs{
+    padding: 0 0 80px 0;
+    max-width: 1200px;
+    margin: auto;
+}
+
+#refs .content{
+    width: 80%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    margin: auto;
+    column-gap: 300px;
+}
+
+#refs .refs-card{
+    max-width: 400px;
+}
+
+#refs img{
+    width: 60px;
+    height: auto;
+    border-radius: 30px;
+}
+
+.refs-card img, .refs-card h3{
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 30px;
+}
+
+.refs-card h3{
+    padding-left: 20px;
+    color: #bfbfbf;
+    font-size: 18px;
+    font-family: 'PT Sans', sans-serif;
+}
+
+#refs blockquote span{
+    background-color: #4d4d4d;
+    max-width: 400px;
+    width: 85%;
+    padding: 20px 20px 20px 40px;
+    display: inline-flex;
+    border-radius: 5px;
+    position: relative;
+    color: white;
+}
+
+#refs blockquote span:hover{
+    background-color: steelblue;
+}
+
+#refs blockquote span:hover:before{
+    border-top-color: steelblue;
+}
+
+#refs blockquote:hover ~ figure h3{
+    color: steelblue;
+}
+
+#refs blockquote:hover:before{
+    color: white;
+}
+
+
+#refs blockquote span::before{ /*text bubble bottom peak*/
+    position: absolute;
+    bottom: -20px;
+    left: 30px;
+    content: "";
+    border: 20px solid transparent;
+    border-top-color: #4d4d4d;
+    border-bottom: 0;
+    border-left: 0;
+}
+
+#refs blockquote::before{ /*text bubble quotation mark*/
+    content: '"';
+    position: relative;
+    z-index: 1;
+    color: steelblue;
+    font-size: 3cm;
+    font-style: italic;
+    top: 3.5cm;
+}
+
+#refs blockquote{
+    margin-top: -2cm;
+}
+
+
+/*-------------------------------------------------*/
+
+
+
+
+/*------------------ CONTACT ------------------*/
+
+#contact{
+    border-top: black 1px dashed;
+    padding: 80px 0 80px 0;
+}
+
+
+/*------------------ CONTACT - GRID ------------------*/
+#contact .content{
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+}
+
+#contact h2{
+    grid-row: 1;
+    grid-column: span 2;
+    font-size: 40px;
+    text-transform: uppercase;
+    padding-bottom: 40px;
+}
+
+#contact #map{
+    height: 400px;
+    width: 600px;
+}
+
+
+/*------------------ FORM GRID ------------------*/
+#contact form{
+    display: grid;
+    grid-template-rows: auto auto auto auto;
+    grid-template-columns: auto auto;
+    row-gap: 20px;
+    column-gap: 20px;
+    padding: 20px;
+}
+
+#contact-subject, #contact-message, #contact-submit{
+    grid-column: span 2;
+}
+
+#contact form input, textarea{
+    border: steelblue 1px solid;
+    outline: none;
+    border-radius: 5px;
+    padding: 10px;
+    color: steelblue;
+}
+
+#contact-submit{
+    width: 50%;
+    color: white;
+    margin: auto;
+    background-color: steelblue;
+}
+
+#contact input:focus, textarea:focus{  
+    color: steelblue;
+    border: green 1px solid;
+}
+
+#contact-submit{
+    color: white !important;
+}
+
+#contact-submit:hover{
+    background-color: green;
+}
+
+#contact input:required:invalid{
+    color: red;
+} 
+
+/*-------------------------------------------------*/
+/*-------------------------------------------------*/
+/*-------------------------------------------------*/
+
+
+
+/*------------------ FOOTER ------------------*/
+footer{
+    padding: 60px;
+    background-color: black;
+}
+
+footer .content{
+    max-width: 1200px;
+    margin: auto;
+}
+
+footer .content a{
+    float: right;
+    text-decoration: none;
+    color: steelblue;
+}
+
+footer .content{
+    text-align: left;
+    color: #898989;
+}
+/*-------------------------------------------------*/
+/*------------------ DONE ------------------*/
