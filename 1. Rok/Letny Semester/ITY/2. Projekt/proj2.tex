@@ -1,0 +1,126 @@
+\documentclass[a4paper, 11pt, twocolumn]{article}
+
+\usepackage[left=1.5cm, top=2.5cm, text={18cm, 25cm}]{geometry}
+\usepackage{times}
+\usepackage{amsthm, amssymb, amsmath}
+\usepackage[czech]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[IL2]{fontenc}
+\usepackage{enumitem}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definice}
+
+\theoremstyle{plain}
+\newtheorem{sentence}{Věta}
+\newtheorem{algorithm}[definition]{Algoritmus}
+
+\begin{document}
+    \begin{titlepage}
+        \begin{center}
+            \Huge
+            \textsc{Fakulta informačních technologií\\ Vysoké učení technické v~Brně}\\
+            \vspace{\stretch{0.3}}
+            \LARGE
+                Typografie a publikování\,--\,2. projekt\\ Sazba dokumentů a matematických výrazů\\
+            \vspace{\stretch{0.4}}
+        \end{center}
+        {\Large 2021 \hfill Martin Bublavý (xbubla02)}
+    \end{titlepage}
+	
+    \section*{Úvod}
+        V~této úloze si vyzkoušíme sazbu titulní strany, matematic\-kých vzorců, prostředí a dalších textových struktur obvyklých pro technicky zaměřené texty (například rovnice (\ref{eq_1}) nebo Definice \ref{Rozšířený zásobníkový automat} na straně \pageref{Rozšířený zásobníkový automat}). Rovněž si vyzkoušíme používání odkazů \verb+\ref+ a \verb+\pageref+.
+        
+        Na titulní straně je využito sázení nadpisu podle optického středu s~využitím zlatého řezu. Tento postup byl probírán na přednášce. Dále je použito odřádkování se zadanou relativní velikostí 0.4 em a 0.3 em.
+        
+        V~případě, že budete potřebovat vyjádřit matematickou konstrukci nebo symbol a nebude se Vám dařit jej nalézt v~samotném \LaTeX u, doporučuji prostudovat možnosti balíku maker \AmS -\LaTeX.
+    
+    \section{Matematický text}
+        Nejprve se podíváme na sázení matematických symbolů a~výrazů v~plynulém textu včetně sazby definic a vět s~vy-užitím balíku \verb+amsthm+. Rovněž použijeme poznámku pod čarou s~použitím příkazu \verb+\footnote+. Někdy je vhodné použít konstrukci \verb+\mbox{}+, která říká, že text nemá být zalomen.
+
+    \begin{definition}
+        \label{Rozšířený zásobníkový automat}
+        Rozšířený zásobníkový automat \emph{(RZA) je definován jako sedmice tvaru $A = (Q, \Sigma,\Gamma,\delta,q_{0},Z_{0},F)$, kde:}
+        
+        \begin{itemize}
+            \item \emph{Q je konečná množina} vnitřních (řídicích) stavů,
+            
+            \item \emph{$\Sigma$ je konečná} vstupní abeceda,
+            
+            \item \emph{$\Gamma$ je konečná} zásobníková abeceda,
+            
+            \item \emph{$\delta$ je} přechodová funkce  $Q \times(\Sigma \cup\{\epsilon\}) \times \Gamma^{*} \rightarrow 2^{Q \times \Gamma^{*}}$,
+            
+            \item \emph{$q_{0} \in Q$ je} počáteční stav, $Z_{0} \in \Gamma$ \emph{je} startovací symbol zásobníku a $F \subseteq Q$ \emph{je množina} koncových stavů.
+        \end{itemize} 
+        
+    \end{definition}
+    
+    Nechť $P = (Q,\Sigma,\Gamma,\delta,q_{0},Z_{0},F)$ je rozšířený zásobníkový automat. \emph{Konfigurací} nazveme trojici $(q,w,\alpha) \in Q \times \Sigma^{*} \times \Gamma^{*}$, kde $q$ je aktuální stav vnitřního řízení, $w$ je dosud nezpracovaná část vstupního řetězce a $\alpha = Z_{i_{1}} Z_{i_{2}} \ldots Z_{i_{k}}$ je obsah zásobníku\footnote{$Z_{i_{1}}$ je vrchol zásobníku}.
+    
+    \subsection{Podsekce obsahující větu a odkaz}
+        \begin{definition}
+            \label{Řetězec}
+            Řetězec $w$ nad abecedou $\Sigma$ je přijat RZA \emph{A~jestliže ($q_{0}, w, Z_{0}$) $\underset{{A}}{\overset{*}{\vdash}}$ ($q_{F},\epsilon,\gamma$) pro nějaké $\gamma \in \Gamma^{*}$ a $q_{F} \in F$. Množinu $L(A)=\{w \mid w\ $  je přijat RZA $A\} \subseteq \Sigma^{*}$~nazýváme} jazyk přijímaný RZA $A$.
+        \end{definition}
+        
+        Nyní si vyzkoušíme sazbu vět a důkazů opět s~použitím balíku \verb+amsthm+.
+        \begin{sentence}
+            Třída jazyků, které jsou přijímány ZA, odpovídá bezkontextovým jazykům.
+        \end{sentence}
+        \begin{proof}
+            V~důkaze vyjdeme z~Definice \ref{Rozšířený zásobníkový automat} a \ref{Řetězec}. 
+        \end{proof}
+        
+    \section{Rovnice a odkazy}
+        Složitější matematické formulace sázíme mimo plynulý text. Lze umístit několik výrazů na jeden řádek, ale pak je třeba tyto vhodně oddělit, například příkazem \verb+\quad+.
+        
+        \[
+        \sqrt[i]{x_{i}^{3}} \quad \textrm{kde }x_{i} \textrm{ je }i\textrm{-té sudé číslo splňující} \quad x_{i}^{x_{i}^{i^{2}}+2} \leq y_{i}^{x_{i}^{4}} 
+        \]
+        
+        V~rovnici (\ref{eq_1}) jsou využity tři typy závorek s~různou explicitně definovanou velikostí.  
+        
+        \begin{eqnarray}
+            \label{eq_1}
+            & x &=\bigg[\Big\{ \big[a+b\big] * c\Big\}^d \oplus 2\bigg]^{3 / 2}\\
+            & y &=\lim _{x \rightarrow \infty} \frac{\frac{1}{\log _{10} x}}{\sin ^{2} x+\cos ^{2} x} \nonumber
+        \end{eqnarray}
+        V~této větě vidíme, jak vypadá implicitní vysázení limity $\lim _{n \rightarrow \infty} f(n)$ v~normálním odstavci textu. Podobně je to i s~dalšími symboly jako $\prod_{i=1}^{n} 2^{i}$ či $\bigcap_{A \in \mathcal{B}} A$. V~případě vzorců $\underset{n \rightarrow \infty}{\lim} f(n)$ a $\underset{i=1}{\stackrel{n}{\prod}}2^{i}$ jsme si vynutili méně úspornou sazbu příkazem \verb+\limits+.
+        
+        \begin{eqnarray}
+            \label{eq_2}
+            \int_{b}^{a} g(x) \mathrm{d} x&=&-\int_{a}^{b} f(x) \mathrm{d} x
+        \end{eqnarray}
+    
+    \section{Matice}
+        Pro sázení matic se velmi často používá prostředí \verb+array+ a závorky (\verb+\left+, \verb+\right+).
+        $$
+        \left(\begin{array}{ccc}a-b & \widehat{\xi+\omega} & \pi \\ \vec{\mathbf{a}} & \overleftrightarrow{AC} & \hat{\beta}\end{array}\right)=1 \Longleftrightarrow \mathcal{Q}=\mathbb{R} \nonumber
+        $$
+        
+        $$
+        \mathbf{A}=\left\|
+        \begin{array}{cccc} a_{11} & a_{12} & \ldots & a_{1 n} \\
+        a_{21} & a_{22} & \ldots & a_{2 n} \\ 
+        \vdots & \vdots & \ddots & \vdots \\
+        a_{m 1} & a_{m 2} & \ldots & a_{m n} 
+        \end{array}
+        \right\|=\left|\begin{array}{cc}
+        t & u~\\ 
+        v~& w
+        \end{array}\right| = tw - uv
+        $$
+        Prostředí \verb+array+ lze úspěšně využít i jinde.
+        
+        $$
+    		\binom{n}{k}=
+    		\left\{
+    		\begin{array}{ll}
+    			0 & \text{pro } k < 0 \text{ nebo } k > n\\
+    			\frac{n!}{k! (n - k)!} & \text{pro } 0 \leq k \leq n. 
+    		\end{array}
+    		\right.
+        $$
+        
+\end{document}
