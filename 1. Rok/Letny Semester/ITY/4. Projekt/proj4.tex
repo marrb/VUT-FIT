@@ -1,0 +1,103 @@
+\documentclass[a4paper, 11pt]{article}
+
+\usepackage[czech]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[left=2cm, top=3cm, text={17cm, 24cm}]{geometry}
+\usepackage{times}
+\usepackage[IL2]{fontenc}
+\usepackage[unicode]{hyperref}
+\hypersetup{colorlinks = true, hypertexnames = false}
+\usepackage{xcolor}
+
+\begin{document}
+
+\begin{titlepage}
+        \begin{center}
+            \Huge
+            \textsc{Vysoké učení technické v~Brně\\ \huge Fakulta informačních technologií}\\
+            \vspace{\stretch{0.3}}
+            \LARGE
+                Typografie a publikování\,--\,4. projekt\\ \Huge{\textbf{Typografia a \LaTeX}}\\
+            \vspace{\stretch{0.4}}
+        \end{center}
+        {\Large \today \hfill Martin Bublavý (xbubla02)}
+\end{titlepage}
+\section{Typografia}
+Typografia sa zaoberá problematikou grafickej úpravy tlačených dokumentov s použitím vhodných rezov písma a usporiadania jednotlivých znakov a odsekov vo vhodnej, pre čitateľa zrozumiteľnej a esteticky akceptovateľnej forme. Mnohé odvetvia ľudskej činnosti prešli či už skôr alebo neskôr obdobím digitalizácie. Výnimku v tomto smere netvorí ani typografia. Najčastejšie s písmom pracujeme v digitálnej podobe a to napr. použitím \LaTeX u. Viac informacií môžete nájsť tu: \cite{Bednar}
+    
+\section{Čo je \LaTeX ?}
+    \textbf{{\LaTeX}} is a comprehensive set of markup commands used with the powerful typesetting program TEX for the preparation of a wide variety of documents, from scientific articles, to reports, to complex books. A \textbf{{\LaTeX}} document consists of one or more source files containing plain text characters, the actual textual content plus markup commands. Podrobnejšie informácie môžete nájsť v \cite{Guide_To_Latex}
+    
+    Existujú dokonca nástroje, ktoré umožňujú preklad písaného textu v textovom editore priamo do \TeX u. Viz.~\cite{Oksuz}
+    
+\section{Štruktúra dokumentu}
+    \verb+\documentclass+[{\color{blue}volby}] \{{\color{blue}třída}\}  \dots preambule dokumentu, sem sa uvádzajú rúzné definice
+    
+    \noindent \verb+\usepackage+\{{\color{blue}styl}\} \dots pripojení stylu (balíčku definic)
+    
+    \noindent \verb+\begin{document}+
+    
+    \noindent \dots tělo dokumentu, sem se zapisuje text
+    
+    \noindent \verb+\end{document}+
+
+    \noindent\rule{17cm}{0.4pt}
+    \begin{itemize}
+        \item {\color{blue}Volby} -- nepovinný parametr, umožňuje upřesnit některá globální nastavení v dané třídě dokumentu
+        \item {\color{blue}Třída dokumentu} -- definuje typ dokumentu
+        \item {\color{blue}Styl} -- název stylu (balíčku) s definicemi příkazů
+    \end{itemize}
+    \noindent\rule{17cm}{0.4pt}
+    Podrobnejšie informácie môžete nájsť v \cite{Struktura_Dokumentu}
+    
+    \subsection{Príkazy}
+    {\LaTeX} commands begin with a backslash, followed by big or small letters. {\LaTeX} commands are usually named with small letters and in a descriptive way. 
+    
+    \noindent Pre ukáźku volania príkazov viz. \cite{Kottwitz}
+
+\section{Časti dokumentu}
+    Documents (especially longer ones) are divided into chapters, sections and so on. There may be a title part (sometimes even a separate title page) and an abstract. All these require special typographic considerations and {\LaTeX} has a number of features which automate this task. Pre viac informácií a príklady k častiam viz. \cite{Indian}
+    
+\newpage
+    
+\section{Štruktúra textu}
+Jednotlivé myšlenky je občas potřeba vypíchnout odrážkami. Prostředí s odrážkami se vymezuje sekvencemi \verb+\begin{itemize}+ a \verb+\end{itemize}+. Uvnitř tohoto prostředí je \verb+\item+ aktivním znakem, který zahajuje odrážky.
+\begin{itemize}
+    \item Item 1
+    \item Item 2
+    \item Item 3
+\end{itemize}
+    Pre viac informácií viz. \cite{Olsak}
+    
+\subsection{Tabulky}
+    Pro tabulky se používají tři základní prostředí \emph{\textbf{tabbing}}, \emph{\textbf{tabular}}, \emph{\textbf{table}}. Prostředím \textbf{tabbing} se vytváří tabulky bez ohraničení, hodí se například pro sazbu zdrojových kódů. \textbf{Tabular} sází standardní tabulky a \textbf{table} přidává popis tabulky.
+    
+\begin{center}
+    \begin{tabular}{|l||c|c|}
+        \hline
+        délka&metr&m\\
+        \hline
+        hmotnost&kilogram&kg\\
+        \hline
+        čas&sekunda&s\\
+        \hline
+    \end{tabular} 
+\end{center}
+
+Pre viac informácií a príklad vysádzanej tabulky viz. \cite{Bojko}
+
+\section{Matematická sadzba textu}
+    One way to insert mathematical formulas is to have it appear in a paragraph with text. The other way is to have them appear in a separate paragraph, where there will be more room. For formulas that appear in a paragraph, surround them with \$. Pre viac informácií o matematickej sadzbe viz. \cite{Clark}
+    
+    Príklad vysádzanej rovnice môžete nájsť v \cite{Castro}
+    
+    $$\frac{a - b}{a + b} = \frac{\tan \frac{\alpha - \beta}{2}}{\tan \frac{\alpha + \beta}{2}}$$
+
+    
+\newpage
+\bibliographystyle{czechiso}
+\renewcommand{\refname}{Literatura}
+
+\bibliography{proj4}
+
+\end{document}
