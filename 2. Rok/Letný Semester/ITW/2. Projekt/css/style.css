@@ -1,0 +1,1089 @@
+/*------------------ General -----------------*/
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html, body{
+    color: black;
+    scroll-behavior: smooth;
+    width: 100%;
+}
+
+body{
+    margin: auto;
+    padding-top: 30px;
+    font-family: Poppins,sans-serif;
+    background-color: #eeeff1;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+::selection{
+    background-color: lightblue;
+}
+
+main{
+    max-width: 1200px;
+    margin: auto;
+}
+
+.title{
+    font-weight: bold;
+}
+
+#nav_mobile, footer{
+    display: none;
+}
+/*--------------------------------------------*/
+
+
+
+/*------------------ HEADER ------------------*/
+header{
+    transition-duration: 1s;
+}
+
+header #nav_pc{
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    position: relative;
+    max-width: 1800px;
+    margin: auto;
+    padding: 5px 0 5px 0;
+}
+
+header nav ul{
+    list-style-type: none;
+    text-decoration: none;
+}
+
+header nav ul li{
+    display: inline-block;
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: #373737;
+    padding: 12px 0 12px 0;
+    transition-duration: 0.5s;
+}
+
+header nav ul li a{
+    color: #eeeff1;
+    padding: 12px;
+}
+
+header #Person_Name, header .socials{
+    margin-top: auto;
+    margin-bottom: auto;
+    font-size: 30px;
+}
+
+header #Person_Name img{
+    /*Logo size*/
+    width: 1cm;
+    height: auto;
+    vertical-align: sub;
+}
+
+#Person_Name:after { /* Line under name with rounded edges*/
+    content: " "; /*Insert empty value*/
+    display: block;
+    /*Draw top and bottom borders and round the edges*/
+    border-top: 3px solid red;
+    border-bottom: 3px solid red;
+    border-radius: 10px;
+}
+
+header .socials a:hover{
+    color: orange;
+}
+
+header nav ul li:hover, header #nav_pc .dropdown_links a:hover{
+    /*Highlight anchors on hover*/
+    background-color: #4D4D4D;
+    box-shadow: 1px 1px 10px 5px black;
+    transition-duration: 0.5s;
+}
+
+header #nav_pc ul .dropdown{
+    display: block;
+    position: relative;
+}
+
+header #nav_pc .dropdown_links{
+    position: absolute;
+    background-color: #373737;
+    top: 36px;
+    left: 0;
+    width: max-content;
+    box-shadow: 0 0 5px 3px black;
+
+    /*Animate dropdown retracting*/
+    transform: scaleY(0);
+    transition: transform 0.5s ease;
+    transform-origin: top;
+}
+
+header #nav_pc ul li#dropdown:hover .dropdown_links{
+    /*Animate dropdown expanding*/
+    transform: scaleY(1);
+    transform-origin: top;
+    transition: transform 0.5s ease;
+}
+
+header #nav_pc ul .dropdown_links a{
+    display: block;
+    border-bottom: solid 2px black;
+    color: #eeeff1;
+    transition-duration: 0.5s;
+}
+
+/*-------------- Sticky Header ---------------*/
+
+header.sticky{
+    top: 0;
+    position: sticky;
+    background-color: #373737;
+    transition-duration: 1s;
+    z-index: 2; /*Show on top*/
+
+    /*Animate header coming down from top of the screen*/
+    transform: scaleY(0);
+    animation: show_nav 0.7s forwards;
+    transform-origin: top;
+}
+
+header.sticky > #nav_pc{
+    /*Animate text appearing in the header*/
+    opacity: 0;
+    animation: show_nav_content 1s forwards;
+    animation-delay: 0.7s;
+}
+
+header.sticky a{
+    color: #e4e4e4;
+}
+
+header.sticky ul li{
+    background-color: #373737;
+    border: 2px #8f8d8d solid;
+}
+
+@keyframes show_nav{
+    100%{
+        transform: scaleY(1);
+        transform-origin: top;
+    }
+}
+
+@keyframes show_nav_content{
+    100%{
+        opacity: 1;
+    }
+}
+
+/*--------------------------------------------*/
+
+
+
+/*------------------ ABOUT -------------------*/
+#about{
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 40px;
+    grid-template-rows: 1fr;
+    font-size: 25px;
+    font-weight: 300;
+    padding-bottom: 100px;
+    padding-top: 250px;
+    border-bottom: dashed 3px red;
+}
+
+#about img{
+    background-image: url("../img/profile_bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    width: 100%;
+}
+
+#about .title{
+    font-size: 100px;
+}
+
+#about .content{
+    line-height: 39px;
+}
+/*--------------------------------------------*/
+
+
+
+/*------------------ Education ---------------*/
+#education{
+    padding-bottom: 100px;
+    padding-top: 60px;
+    border-bottom: dashed 3px red;
+}
+
+#education .content{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: 1fr;
+    column-gap: 60px;
+}
+
+#education .text .title{
+    font-size: 50px;
+    padding-bottom: 10px;
+}
+
+#education .text p:last-child{
+    line-height: 39px;
+    font-size: 25px;
+}
+
+
+/*------------------ Skill Table --------------*/
+#education #skill_table{
+    box-shadow: 1px 1px 10px 5px #bfbfbf;
+    border-radius: 10px;
+}
+
+#education #skill_table:hover .skill_bar span{
+    /*When hovering change the background 
+    to left so it shows red color (background is sized up gradient
+    with red and orange color)*/
+    background-position: left;
+}
+
+#education .skill{
+    padding: 20px 20px 0px 20px;
+}
+
+#education .skill span{
+    padding-bottom: 10px;
+    display: block;
+    font-weight: bold;
+    font-size: 18px;
+    opacity: 0;
+    /*Show text after 1.5s delay*/
+    animation: show_text 0.5s 1.5s linear forwards;
+}
+
+#education .skill_bar{
+    width: 600px;
+    height: 10px;
+    display: block;
+    border-radius: 10px;
+    background-color: lightgray;
+    position: relative;
+    transform-origin: left; /*Start animation from left*/
+    transform: scaleX(0);  /*Start with scale 0*/
+    animation: slide-right 1s forwards; /*Animation will last for 1s*/
+}
+
+#education .skill:last-child .skill_bar{
+    margin-bottom: 20px;
+}
+
+#education .skill .skill_bar span{
+    transition-duration: 1s;
+    opacity: 1;
+    background-color: orange;
+    border-radius: 10px;
+    position: absolute;
+    width: 400px;
+    transform-origin: left; /*Start animation from left*/
+    transform: scaleX(0);  /*Start with scale 0*/
+    animation: slide-right 1s forwards; /*Animation will last for 1s*/
+    animation-delay: 1s;
+
+    background: linear-gradient(to left, orange 50%, red 50%) right; /*Set the backround to gradiet with red and orange color (used for color changing on hover)*/
+    background-size: 200%; /*Scale up the background so one color can be used at a time*/
+}
+
+#education .skill_bar span::before{
+    /*Text bubble peek*/
+    content: " ";
+    position: absolute;
+    border: 10px solid transparent; /*Make the border transparent*/
+    border-top-color: #373737; /*Make the top line black*/
+    border-right-width: 0; /*Make right side flat*/
+    /*Postion the peek*/
+    right: 0; 
+    bottom: 2px;
+}
+
+#education .skill_bar span::after{
+    /*Text bubble text*/
+    content: "80%"; /*Default content*/
+    color: #E4E4E4;
+    border: 3px solid #373737;
+    position: absolute;
+    right: 0;
+    top: -35px;
+    width: 40px;
+    text-align: center;
+    background-color: #373737;
+    border-radius: 5px;
+}
+
+@keyframes slide-right{
+    100%{
+        transform: scaleX(1);
+    }
+}
+
+@keyframes show_text{
+    100%{
+        opacity: 1;
+    }
+}
+
+
+/*------------- Skill Bar Content ------------*/
+/*Change the values to match*/
+#education .skill .skill_bar#html span{
+    width: calc(95%);
+}
+
+#education .skill .skill_bar#css span{
+    width: calc(80%);
+}
+
+#education .skill .skill_bar#js span{
+    width: calc(70%);
+}
+
+#education .skill .skill_bar#Comm_skills span{
+    width: calc(50%);
+}
+
+#education .skill .skill_bar#Think_skills span{
+    width: calc(99%);
+}
+
+#education .skill .skill_bar#html span::after{
+    content: "95%";
+}
+
+#education .skill .skill_bar#css span::after{
+    content: "80%";
+}
+
+#education .skill .skill_bar#js span::after{
+    content: "70%";
+}
+
+#education .skill .skill_bar#Comm_skills span::after{
+    content: "50%";
+}
+
+#education .skill .skill_bar#Think_skills span::after{
+    content: "99%";
+}
+
+/*--------------------------------------------*/
+/*--------------------------------------------*/
+
+
+
+/*----------------- Projects -----------------*/
+#projects{
+    padding-bottom: 50px;
+    padding-top: 60px;
+    border-bottom: dashed 3px red;
+}
+
+#projects .title{
+    font-size: 50px;
+    padding-bottom: 10px;
+}
+
+#projects .content{
+    line-height: 39px;
+    font-size: 25px;
+}
+
+#projects #project_list{
+    padding-top: 20px;
+}
+
+#projects .project_item{
+    padding-bottom: 10px;
+    line-height: 39px;
+    scroll-margin-top: 2.5em; /*Scroll margin because of sticky header*/
+}
+
+#projects .project_item p{
+    font-size: 20px;
+    height: fit-content;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+#projects .project_item img{
+    height: auto;
+    width: 20%;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px 5px black;
+    transition-duration: 1s;
+}
+
+#projects .project_item .item_content{
+    display: flex;
+    column-gap: 100px;
+    border: none;
+    background-color: #eeeff1;
+}
+
+#projects .project_item h3:hover{
+    background-color: lightblue;
+}
+
+#projects .project_item img:hover{
+    width: 30%;
+    transition-duration: 1s;
+    box-shadow: 1px 1px 10px 5px #7bdeff;
+}
+
+.ui-state-default{
+    background: #373737 !important;
+    transition-duration: 0.3s;
+}
+
+.ui-state-active, .ui-state-hover{
+    /*When project dropdown is opened or hovered*/
+    background:  #4D4D4D !important;
+    transition-duration: 0.3s;
+    box-shadow: 1px 1px 10px 5px black;
+}
+
+.ui-state-active i.down_arr{
+    /*If the dropdown is opened change the arrow to down arrow*/
+    display: unset !important;
+    font-size: 20px;
+    vertical-align: middle;
+}
+
+.ui-state-active i.right_arr{
+    display: none !important;
+}
+
+#projects .project_item h3{
+    color: #eeeff1;
+}
+
+#projects .project_item i.down_arr{
+    display: none;
+}
+
+#projects .project_item i.right_arr{
+    font-size: 20px;
+    vertical-align: middle;
+}
+/*--------------------------------------------*/
+
+
+
+/*------------------- Team -------------------*/
+#team{
+    padding-top: 60px;
+    padding-bottom: 100px;
+    border-bottom: dashed 3px red;
+}
+
+#team .title{
+    font-size: 50px;
+    padding-bottom: 10px;
+}
+
+#team .content{
+    line-height: 39px;
+    font-size: 25px;
+}
+
+#team #team_cards{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding-top: 60px;
+    column-gap: 100px;
+    margin: auto;
+}
+
+#team .team_card img{
+    height: auto;
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+}
+
+#team .team_card{
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px 5px #bfbfbf;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#team .team_card p{
+    padding: 20px;
+    font-size: 18px;
+    line-height: 30px;
+}
+
+#team .team_card h5{
+    font-size: 15px;
+    color: #bfbfbf;
+}
+
+#team .team_card:hover{
+    box-shadow: 1px 1px 5px 5px lightblue;
+    transition-duration: 1s;
+}
+/*--------------------------------------------*/
+
+
+
+/*------------------- Contact -----------------*/
+#contact{
+    padding-top: 80px;
+    padding-bottom: 100px;
+}
+
+#contact .content{
+    border: 3px solid black;
+    border-radius: 10px;
+    padding: 70px;
+}
+
+#contact form{
+    display: grid;
+    grid-auto-columns: 50% 50%;
+    column-gap: 0px;
+    margin: auto;
+    column-gap: 20px;
+}
+
+#contact #inner_content{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 20px;
+    column-gap: 40px;
+}
+
+#contact #email_div{
+    grid-column: 2;
+}
+
+#contact #message_div{
+    grid-column: span 2;
+}
+
+#contact input{
+    width: 100%;
+    height: 60px;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    box-sizing: border-box;
+    font-size: 15px;
+    font-family: monospace;
+}
+
+#contact textarea{
+    width: 100%;
+    height: 160px;
+    border: none;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+    box-sizing: border-box;
+    font-size: 15px;
+    resize: none;
+    font-family: monospace;
+}
+
+#contact h1{
+    font-size: 60px;
+}
+
+#contact #button input{
+    margin-top: 20px;
+    grid-column: span 2;
+    background-color: #4D4D4D;
+    width: 120px;
+    text-align: center;
+    padding: 0;
+    color: white;
+    cursor: pointer;
+    transition-duration: 1s;
+}
+
+#contact label{
+    font-size: 13px;
+    display: block;
+    color: #8f929e;
+    margin-bottom: -10px;
+}
+
+#contact #button input:hover{
+    transition-duration: 1s;
+    background-color: #797878;
+}
+/*--------------------------------------------*/
+
+
+/*-------------- Media Queries ---------------*/
+/*Mobile design*/
+@media screen and (max-width: 1000px){
+    body{
+        padding: 0;
+    }
+
+
+    /*--------------------HEADER-------------------*/
+    header{
+        background-color: #373737;
+        position: sticky;
+        top: 0;
+        z-index: 2;
+    }
+
+    header #nav_pc{
+        display: none; /*Hide header for monitor design*/
+    }
+
+    header #nav_mobile{
+        display: unset; /*Show header for mobile design*/
+    }
+
+    header #nav_mobile img{
+        width: 0.8cm;
+        vertical-align: bottom;
+        padding: 10px 3px 10px 10px;
+    }
+    header #nav_mobile #mobile_links{
+        /*Set the height to 0 so it can be later animated*/
+        height: 0;
+        overflow: hidden;
+        transition: height 1s ease;
+    }
+
+    header #nav_mobile #mobile_links a{
+        display: block;
+        font-size: 20px;
+        color: white;
+        padding: 10px 10px 10px 20px;
+    }
+
+    header #nav_mobile #mobile_links.hamb_active a{
+        display: block;
+        font-size: 20px;
+        color: white;
+        padding: 10px 10px 10px 20px;
+    }
+
+    header #nav_mobile a#p_name span{
+        font-size: 18px;
+        color: white;
+        top: -12px;
+        position: relative;
+    }
+
+    header #nav_mobile #mobile_links a:first-child{
+        border-top: 2px solid black;
+    }
+
+    header #nav_mobile #mobile_links.hamb_active{
+        /*Set fixed height so slide down can be animated*/
+        height: 218px;
+        transition: height 0.8s ease;
+    }
+
+    header #nav_mobile #mobile_links.hamb_active a{
+        font-size: 20px;
+    }
+
+    header #nav_mobile #mobile_links a:hover{
+        background-color: #797878;
+    }
+    
+    header #nav_mobile #hamb_icon{
+        /*Middle line of menu icon*/
+        position: absolute;
+        top: 0;
+        right: 0;
+        content: ""; /*Empty content*/
+        border-radius: 5px;
+        /*Set background to white and set height and width of the line*/
+        background-color: white; 
+        padding: 0;
+        width: 28px;
+        display: block;
+        height: 0.20rem;
+        top: 22px;
+        right: 15px;
+        transition-delay: 0.3s;
+    }
+
+    header #nav_mobile #hamb_icon::before{
+        /*Bottom line of menu icon*/
+        position: relative;
+        content: "";
+        border-radius: 5px;
+        background-color: white;
+        height: 0.20rem;
+        width: 28px;
+        top: 9px;
+        display: block;
+        /*Animate rotation and top position*/
+        transition: transform 0.3s, top 0.3s 0.3s;
+    }
+
+    header #nav_mobile #hamb_icon::after{
+        /*Top line of menu icon*/
+        position: relative;
+        content: "";
+        border-radius: 5px;
+        background-color: white;
+        height: 0.20rem;
+        width: 28px;
+        display: block;
+        bottom: 12px;
+        /*Animate rotation and bottom position*/
+        transition: transform 0.3s, bottom 0.3s 0.3s;
+    }
+
+    header #mobile_links.hamb_active ~ #hamb_icon::after{
+        /*When menu is opened, rotate line by -45 degrees and move it down*/
+        transform: rotate(-45deg);
+        bottom: 3px;
+        transition: bottom 0.3s, transform 0.3s 0.3s;
+    }
+
+    header #mobile_links.hamb_active ~ #hamb_icon::before{
+        /*When menu is opened, rotate line by 45 degrees and move it up*/
+        transform: rotate(45deg);
+        top: 0px;
+        transition: top 0.3s, transform 0.3s 0.3s;
+    }
+
+    header #mobile_links.hamb_active ~ #hamb_icon{
+        /*When menu is opened, change the middle line color to match background*/
+        background-color: #373737;
+    }
+
+
+
+    header #nav_mobile .dropdown_mobile a:first-child{
+        /*Separate section name and dropdown icon*/
+        border-top: none !important;
+        flex: 0 0 80%;
+    }
+
+    header #nav_mobile .dropdown_mobile .dropdown_item{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    header #nav_mobile .dropdown_mobile .dropdown_item:hover{
+        background-color: #797878;
+    }
+
+    header #nav_mobile #mobile_links .dropdown_mobile .dropdown_icon{
+        /*Same as menu icon*/
+        content: "";
+        display: block;
+        border-radius: 5px;
+        background-color: white;
+        padding: 0 !important;
+        width: 16px;
+        height: 0.20rem;
+        transition-delay: 0.3s;
+        margin-right: 40px;
+        margin-left: 12px;
+        margin-top: auto;
+        margin-bottom: auto;
+        transform: rotate(45deg);
+        transition: transform 0.3s;
+    }
+
+    header #nav_mobile #mobile_links .dropdown_mobile .dropdown_icon::after{
+        /*Same as menu icon*/
+        content: "";
+        position: relative;
+        width: 16px;
+        height: 0.20rem;
+        transform: rotate(90deg);
+        background-color: white;
+        display: block;
+        left: 8px;
+        top: -7px;
+        transition: transform 0.3s ease, top 0.3s ease;
+    }
+
+    header #nav_mobile #mobile_links .active .dropdown_icon{
+        /*When dropdown is activated rotate line by 45 degrees and change its color*/
+        transform: rotate(-45deg);
+        transition: transform 0.3s ease, background-color 1s ease;
+        background-color: red !important;
+    }
+
+    header #nav_mobile #mobile_links .active .dropdown_icon::after{
+        /*When dropdown is activated rotate second line by 265 degrees and change its color and top position*/
+        transform: rotate(265deg);
+        top: 7px;
+        transition: transform 0.3s ease, top 0.3s ease, background-color 1s ease;
+        background-color: red !important;
+    }
+
+    header #nav_mobile #mobile_links.subsection{
+        /*When subsection dropdown is activated change height of the whole header (for animation purposes)*/
+        height: 389px;
+        transition: height 0.8s ease;
+    }
+
+    header #nav_mobile .dropdown_links_mobile{
+        /*Subsection links height when not activated*/
+        height: 0px;
+        overflow: hidden;
+        transition: height 0.8s ease;
+    }
+
+
+    header #nav_mobile .active .dropdown_links_mobile{
+        /*Subsection links height when activated*/
+        height: 172px;
+        transition: height 0.8s ease;
+    }
+
+    header #nav_mobile .dropdown_mobile .dropdown_links_mobile a{
+        padding-left: 40px !important;
+    }
+    /*--------------------------------------------*/
+
+    
+
+
+
+
+
+
+
+
+    /*---------------------About------------------*/
+    #about{
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        padding: 25px;
+        font-size: 20px;
+        scroll-margin-top: 20em;
+    }
+
+    #about .title{
+        font-size: 50px;
+        padding-bottom: 20px;
+    }
+
+    #about img{
+        margin-bottom: 20px;
+    }
+    /*--------------------------------------------*/
+
+
+    
+    /*------------------Education-----------------*/
+    #education{
+        padding: 25px;
+        scroll-margin-top: 20em;
+    }
+
+    #education .text p:last-child{
+        font-size: 20px;
+    }
+
+    #education .content{
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+    }
+
+    #education .skill_bar{
+        width: 100%;
+        margin: 0;
+    }
+
+    #education .skill{
+        padding: 20px 20px 0px 20px;
+    }
+
+    #education .skill > span:nth-child(1){
+        font-size: 3vw;
+    }
+
+    #education .skill span{
+        font-size: 12px;
+    }
+
+    #education .skill_bar span::after{
+        top: -27px;
+        width: 25px;
+    }
+
+    #education #skill_table{
+        margin-top: 20px;
+    }
+    /*--------------------------------------------*/
+
+
+
+    /*-------------------Projects------------------*/
+    #projects{
+        padding: 25px;
+        scroll-margin-top: 14em;
+    }
+
+    #projects .content p{
+        font-size: 20px;
+    }
+
+    #projects .project_item{
+        scroll-margin-top: 15em;
+    }
+
+    #projects .project_item h3{
+        font-size: 5vw;
+    }
+
+    #projects .project_item .item_content{
+        flex-direction: column;
+    }
+
+    #projects .project_item .item_content img{
+        margin: 30px auto 0 auto;
+        width: 80%;
+    }
+
+    .ui-accordion-content{
+        padding: 20px 10px 10px 10px !important;
+    }
+    /*--------------------------------------------*/
+
+
+    
+    /*--------------------Team--------------------*/
+    #team{
+        padding: 25px;
+        scroll-margin-top: 15em;
+    }
+
+    #team .content p{
+        font-size: 20px;
+    }
+
+    #team #team_cards{
+        grid-template-columns: auto;
+        grid-row: auto;
+        width: auto;
+    }
+    /*--------------------------------------------*/
+
+
+
+    /*------------------Contact--------------------*/
+    #contact{
+        padding: 25px 25px 60px 25px;
+    }
+
+    #contact .content{
+        padding: 0;
+        border: none;
+    }
+
+    #contact #inner_content{
+        grid-template-columns: auto;
+        grid-template-rows: auto auto;
+        padding: 0;
+    }
+
+    #contact h1{
+        font-size: 30px;
+        padding-bottom: 30px;
+    }
+
+    #contact form{
+        grid-auto-columns: 1fr 1fr;
+        grid-row: auto
+    }
+    /*--------------------------------------------*/
+
+
+
+    /*-------------------Footer--------------------*/
+    /*Place for socials (instagram, .....) for mobile design*/
+    footer{
+        display: block;
+        background-color: #373737;
+    }
+
+    footer .socials{
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 30px 10px 30px;
+    }
+
+    footer .socials a{
+        color: #eeeff1;
+        font-size: 30px;
+    }
+    /*--------------------------------------------*/
+}
+
+
+/*Small Tablet design*/
+@media screen and (min-width: 501px) and (max-width: 800px){
+
+    #about img{
+        background-image: url("../img/profile_bg.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 15px;
+        width: 60%;
+    }
+
+    /*---------------------Team------------------*/
+    #team #team_cards{
+        grid-template-columns: auto auto;
+        width: auto;
+        column-gap: 30px;
+    }
+    /*--------------------------------------------*/
+}
+
+
+/*Big Tablet and laptop design*/
+@media screen and (min-width: 801px) and (max-width: 1198px){
+
+    /*---------------------About------------------*/
+    #about{
+        grid-template-columns: auto auto;
+        grid-template-rows: auto;
+    }
+    /*--------------------------------------------*/
+
+    /*---------------------Team------------------*/
+    #team #team_cards{
+        grid-template-columns: auto auto auto;
+        width: auto;
+        column-gap: 30px;
+    }
+    /*--------------------------------------------*/
+
+}
+/*--------------------------------------------*/
