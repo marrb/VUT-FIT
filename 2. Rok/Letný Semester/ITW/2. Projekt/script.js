@@ -18,7 +18,7 @@ window.addEventListener('scroll', () => nav_move(this.scrollY));
 function nav_move(height){
   var header = document.getElementById('header');
   var nav_pc = document.getElementById('nav_pc');
-  if(navigation.offsetHeight < height && window.getComputedStyle(nav_pc).display !== "none"){
+  if(header.offsetHeight < height && window.getComputedStyle(nav_pc).display !== "none"){
     // If navigation is no longer in screen view and is visible (not visible in mobile form), change header class to sticky
     header.className = "sticky";
   }
